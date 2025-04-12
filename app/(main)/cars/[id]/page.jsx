@@ -4,7 +4,7 @@ import CarDetails from "./_components/car-details";
 import { getCarById } from "@/actions/car-listing";
 
 export async function generateMetadata({ params }) {
-  const { id } = await params;
+  const { id } = params;
   const result = await getCarById(id);
 
   if (!result.success) {
@@ -29,7 +29,7 @@ const CarPage = async ({ params }) => {
   const { id } = await params;
   const result = await getCarById(id);
 
-  if (!result.success) {
+  if (!result.success || !result.data) {
     notFound();
   }
 

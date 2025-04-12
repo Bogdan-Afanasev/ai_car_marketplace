@@ -302,16 +302,22 @@ export async function getSavedCars() {
 
 export async function getCarById(carId) {
   try {
-    const { userId } = await auth();
     let dbUser = null;
 
-    if (userId) {
-      dbUser = await db.user.findUnique({
-        where: { clerkUserId: userId },
-      });
+    try {
+      // Пробуем получить юзера, но если не выйдет — идем дальше
+      const { userId } = await auth();
+      if (userId) {
+        dbUser = await db.user.findUnique({
+          where: { clerkUserId: userId },
+        });
+      }
+    } catch (authError) {
+      // Пользователь не авторизован — это окей, просто пропускаем
+      dbUser = null;
     }
 
-    // Get car details
+    // Получаем саму машину
     const car = await db.car.findUnique({
       where: { id: carId },
     });
@@ -323,7 +329,7 @@ export async function getCarById(carId) {
       };
     }
 
-    // Check if car is wishlisted by user
+    // Wishlist логика (только если есть юзер)
     let isWishlisted = false;
     if (dbUser) {
       const savedCar = await db.userSavedCar.findUnique({
@@ -334,32 +340,33 @@ export async function getCarById(carId) {
           },
         },
       });
-
       isWishlisted = !!savedCar;
     }
 
-    const existingTestDrive = await db.testDriveBooking.findFirst({
-      where: {
-        carId,
-        userId: dbUser.id,
-        status: { in: ["PENDING", "CONFIRMED", "COMPLETED"] },
-      },
-      orderBy: {
-        createdAt: "desc",
-      },
-    });
-
+    // Test Drive логика (тоже только если есть юзер)
     let userTestDrive = null;
+    if (dbUser) {
+      const existingTestDrive = await db.testDriveBooking.findFirst({
+        where: {
+          carId,
+          userId: dbUser.id,
+          status: { in: ["PENDING", "CONFIRMED", "COMPLETED"] },
+        },
+        orderBy: {
+          createdAt: "desc",
+        },
+      });
 
-    if (existingTestDrive) {
-      userTestDrive = {
-        id: existingTestDrive.id,
-        status: existingTestDrive.status,
-        bookingDate: existingTestDrive.bookingDate.toISOString(),
-      };
+      if (existingTestDrive) {
+        userTestDrive = {
+          id: existingTestDrive.id,
+          status: existingTestDrive.status,
+          bookingDate: existingTestDrive.bookingDate.toISOString(),
+        };
+      }
     }
 
-    // Get dealership info for test drive availability
+    // Получаем инфу о дилере
     const dealership = await db.dealershipInfo.findFirst({
       include: {
         workingHours: true,
@@ -388,6 +395,10 @@ export async function getCarById(carId) {
       },
     };
   } catch (error) {
-    throw new Error("Error fetching car details:" + error.message);
+    console.error("Error fetching car details:", error);
+    return {
+      success: false,
+      error: "Unexpected error occurred",
+    };
   }
 }

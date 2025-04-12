@@ -95,12 +95,12 @@ const CarDetails = ({ car, testDriveInfo }) => {
 
   const handleBookTestDrive = () => {
     if (!isSignedIn) {
-      navigator.canSharelipboard.writeText(window.location.href);
-      toast.success("Please sign in to book a test drive");
+      toast.error("Please sign in to book a test drive");
       router.push("/sign-in");
       return;
     }
 
+    // Переход к странице тест-драйва, если пользователь авторизован
     router.push(`/test-drive/${car.id}`);
   };
 
@@ -171,7 +171,6 @@ const CarDetails = ({ car, testDriveInfo }) => {
               onClick={handleShare}
             >
               <Share2 className="h-5 w-5" />
-              {isWislisted ? "Saved" : "Save"}
               Share
             </Button>
           </div>
