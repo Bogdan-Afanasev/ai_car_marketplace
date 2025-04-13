@@ -24,7 +24,6 @@ import {
 export function CarListings() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(1);
   const limit = 6;
 
   // Extract filter values from searchParams
@@ -67,18 +66,11 @@ export function CarListings() {
     page,
   ]);
 
-  // Update URL when page changes
-  useEffect(() => {
-    if (currentPage !== page) {
-      const params = new URLSearchParams(searchParams);
-      params.set("page", currentPage.toString());
-      router.push(`?${params.toString()}`);
-    }
-  }, [currentPage, router, searchParams, page]);
-
   // Handle pagination clicks
   const handlePageChange = (pageNum) => {
-    setCurrentPage(pageNum);
+    const params = new URLSearchParams(searchParams);
+    params.set("page", pageNum.toString());
+    router.push(`?${params.toString()}`);
   };
 
   // Generate pagination URL

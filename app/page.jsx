@@ -27,7 +27,7 @@ export default async function Home() {
             <h1 className="text-5xl md:text-8xl mb-4 gradient-title">
               Find your Dream Car with ACM
             </h1>
-            <p className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
               Advanced AI Car Search and test drive from thousands of AI Car
               Marketplace.
             </p>
@@ -151,7 +151,7 @@ export default async function Home() {
             {bodyTypes.map((type) => (
               <Link
                 key={type.name}
-                href={`/cars?make=${type.name}`}
+                href={`/cars?bodyType=${type.name}`}
                 className="relative group cursos-pointer"
               >
                 <div className="overflow-hidden rounded-lg flex justify-end h-28 mb-4 relative">

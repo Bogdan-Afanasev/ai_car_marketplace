@@ -52,6 +52,10 @@ export const CarFilters = ({ filters }) => {
   const [sortBy, setSortBy] = useState(currentSortBy);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
+  useEffect(() => {
+    applyFilters();
+  }, [sortBy]);
+
   // Update local state when URL parameters change
   useEffect(() => {
     setMake(currentMake);
@@ -232,7 +236,6 @@ export const CarFilters = ({ filters }) => {
         value={sortBy}
         onValueChange={(value) => {
           setSortBy(value);
-          setTimeout(() => applyFilters(), 0);
         }}
       >
         <SelectTrigger className="w-[180px] lg:w-full">
@@ -242,7 +245,7 @@ export const CarFilters = ({ filters }) => {
           {[
             { value: "newest", label: "Newest First" },
             { value: "priceAsc", label: "Price: Low to High" },
-            { value: "priceDesc", label: "Price: High to Low" },
+            { value: "priceDesc", label: "Price:  High to Low" },
           ].map((option) => (
             <SelectItem key={option.value} value={option.value}>
               {option.label}
