@@ -21,7 +21,7 @@ export default async function Home() {
     <div className="pt-20 flex flex-col">
       {/* Hero Section with Gradient Title */}
 
-      <section className="relative py-16 md:py-28 dotted-background">
+      <section className="relative py-16 md:py-28 main-background">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-8xl mb-4 gradient-title">
@@ -192,7 +192,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="py-16 dotted-background text-white">
+      <section className="py-16 main-background text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">
             Ready to Find Your Dream Car?
