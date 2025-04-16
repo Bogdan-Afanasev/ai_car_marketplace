@@ -266,7 +266,7 @@ export async function deleteCar(id) {
     // First, fetch the car to get its images
     const car = await db.car.findUnique({
       where: { id },
-      select: { image: true },
+      select: { images: true },
     });
 
     if (!car) {
