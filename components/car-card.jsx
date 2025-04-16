@@ -61,7 +61,7 @@ export const CarCard = ({ car }) => {
   return (
     <Card className="overflow-hidden hover:shadow-lg transition group">
       <div className="relative h-48">
-        {car.images && car.images.length > 0 ? (
+        {car?.images && car.images.length > 0 ? (
           <div className="relative w-full h-full">
             <Image
               src={car.images[0]}
@@ -106,11 +106,11 @@ export const CarCard = ({ car }) => {
         </div>
 
         <div className="text-gray-600 mb-2 flex items-center">
-          <span>{car.year}</span>
+          <span>{car.year || "N/A"}</span>
           <span className="mx-2">•</span>
-          <span>{car.transmission}</span>
+          <span>{car.transmission || "N/A"}</span>
           <span className="mx-2">•</span>
-          <span>{car.fuelType}</span>
+          <span>{car.fuelType || "N/A"}</span>
         </div>
 
         <div className="flex flex-wrap gap-1 mb-4">

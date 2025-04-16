@@ -414,7 +414,7 @@ export const AddCarForm = () => {
                     <Label htmlFor="fuelType">Fuel Type</Label>
                     <Select
                       onValueChange={(value) => setValue("fuelType", value)}
-                      defaultValue={getValues("fuelType")}
+                      value={watch("fuelType")}
                     >
                       <SelectTrigger
                         className={errors.fuelType ? "border-red-500" : ""}
@@ -441,7 +441,7 @@ export const AddCarForm = () => {
                     <Label htmlFor="transmission">Transmission</Label>
                     <Select
                       onValueChange={(value) => setValue("transmission", value)}
-                      defaultValue={getValues("transmission")}
+                      value={watch("transmission")}
                     >
                       <SelectTrigger
                         className={errors.transmission ? "border-red-500" : ""}
@@ -468,7 +468,7 @@ export const AddCarForm = () => {
                     <Label htmlFor="bodyType">Body Type</Label>
                     <Select
                       onValueChange={(value) => setValue("bodyType", value)}
-                      defaultValue={getValues("bodyType")}
+                      value={watch("bodyType")}
                     >
                       <SelectTrigger
                         className={errors.bodyType ? "border-red-500" : ""}
@@ -508,7 +508,7 @@ export const AddCarForm = () => {
                     <Label htmlFor="status">Status</Label>
                     <Select
                       onValueChange={(value) => setValue("status", value)}
-                      defaultValue={getValues("status")}
+                      value={watch("status")}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Select status" />

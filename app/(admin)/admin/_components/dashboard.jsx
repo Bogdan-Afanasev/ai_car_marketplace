@@ -102,7 +102,8 @@ export function Dashboard({ initialData }) {
               <CardContent>
                 <div className="text-2xl font-bold">{cars.sold}</div>
                 <p className="text-xs text-muted-foreground">
-                  {((cars.sold / cars.total) * 100).toFixed(1)}% of inventory
+                  {cars.total ? ((cars.sold / cars.total) * 100).toFixed(1) : 0}
+                  % of inventory
                 </p>
               </CardContent>
             </Card>
@@ -217,8 +218,10 @@ export function Dashboard({ initialData }) {
               <CardContent>
                 <div className="text-2xl font-bold">{testDrives.pending}</div>
                 <p className="text-xs text-muted-foreground">
-                  {((testDrives.pending / testDrives.total) * 100).toFixed(1)}%
-                  of bookings
+                  {testDrives.total
+                    ? ((testDrives.pending / testDrives.total) * 100).toFixed(1)
+                    : 0}
+                  % of bookings
                 </p>
               </CardContent>
             </Card>
@@ -413,10 +416,13 @@ export function Dashboard({ initialData }) {
                     <div className="flex justify-between text-sm">
                       <span>No Show</span>
                       <span className="font-medium">
-                        {testDrives.noShow} (
-                        {((testDrives.noShow / testDrives.total) * 100).toFixed(
-                          1
-                        )}
+                        {testDrives.noShow ? testDrives.noShow : 0} (
+                        {testDrives.total
+                          ? (
+                              (testDrives.noShow / testDrives.total) *
+                              100
+                            ).toFixed(1)
+                          : 0}
                         %)
                       </span>
                     </div>

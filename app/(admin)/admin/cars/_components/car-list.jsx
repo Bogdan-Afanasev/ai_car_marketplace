@@ -96,7 +96,7 @@ const CarsList = () => {
   // Handle errors
   useEffect(() => {
     if (carsError) {
-      toast.error("Failed to delete car");
+      toast.error("Failed to fetch cars");
     }
 
     if (deleteError) {
@@ -130,7 +130,7 @@ const CarsList = () => {
     await updateCarStatusFn(car.id, { status: newStatus });
   };
 
-  // Get stwatus badge color
+  // Get status badge color
   const getStatusBadge = (status) => {
     switch (status) {
       case "AVAILABLE":
@@ -333,9 +333,9 @@ const CarsList = () => {
           <DialogHeader>
             <DialogTitle>Confirm Deletion</DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete {carToDelete?.make}{" "}
-              {carToDelete?.model} ({carToDelete?.year})? This action cannot be
-              undone.
+              Are you sure you want to delete {carToDelete?.make ?? "this"}{" "}
+              {carToDelete?.model ?? "car"} (
+              {carToDelete?.year ?? "year unknown"})?
             </DialogDescription>
           </DialogHeader>
 

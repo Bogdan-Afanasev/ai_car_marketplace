@@ -74,7 +74,7 @@ export async function processCarImageWithAI(file) {
 
     const result = await model.generateContent([imagePart, prompt]);
     const response = await result.response;
-    const text = response.text();
+    const text = await response.text();
     const cleanedText = text.replace(/```(?:json)?\n?/g, "").trim();
 
     try {
@@ -109,14 +109,14 @@ export async function processCarImageWithAI(file) {
         data: carDetails,
       };
     } catch (error) {
-      console.error("Failed to parse AI response:", parseError);
+      console.error("Failed to parse AI response:", error);
       return {
         success: false,
         error: "Failed to parse AI response",
       };
     }
   } catch (error) {
-    throw new Error("Gemini API error:" + error.message);
+    throw new Error(`Gemini API error: ${error.message}`);
   }
 }
 
@@ -207,7 +207,7 @@ export async function addCar({ carData, images }) {
       success: true,
     };
   } catch (error) {
-    throw new Error("Error adding car:" + error.message);
+    throw new Error(`Error adding car: ${error.message}`);
   }
 }
 
@@ -289,7 +289,7 @@ export async function deleteCar(id) {
         .map((imageUrl) => {
           const url = new URL(imageUrl);
           const pathMatch = url.pathname.match(/\/car-images\/(.*)/);
-          return pathMatch ? pathMAtch[1] : null;
+          return pathMatch ? pathMatch[1] : null;
         })
         .filter(Boolean);
 

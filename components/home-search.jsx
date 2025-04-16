@@ -29,7 +29,7 @@ const HomeSearch = () => {
   const handleTextSubmit = (e) => {
     e.preventDefault();
     if (!searchTerm.trim()) {
-      toast.error("Please upload a search term");
+      toast.error("Failed to read the image");
       return;
     }
 

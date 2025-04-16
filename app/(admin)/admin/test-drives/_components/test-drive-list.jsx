@@ -3,6 +3,7 @@
 import { getAdminTestDrives, updateTestDriveStatus } from "@/actions/admin";
 import { cancelTestDrive } from "@/actions/test-drive";
 import { TestDriveCard } from "@/components/test-drive-card";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -20,7 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import useFetch from "@/hooks/use-fetch";
-import { CalendarRange, Loader2, Search } from "lucide-react";
+import { AlertCircle, CalendarRange, Loader2, Search } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 
@@ -75,7 +76,7 @@ const TestDriveList = () => {
       fetchTestDrives({ search, status: statusFilter });
     }
     if (cancelResult?.success) {
-      toast.success("Test drive cancelled successfully");
+      toast.success("Test drive has been cancelled successfully");
       fetchTestDrives({ search, status: statusFilter });
     }
   }, [updateResult, cancelResult]);

@@ -167,7 +167,7 @@ export async function updateTestDriveStatus(bookingId, newStatus) {
       message: "Test drive status updated successfully",
     };
   } catch (error) {
-    throw new Error("Error updating test drive status:" + error.message);
+    throw new Error(`Error updating test drive status: ${error.message}`);
   }
 }
 
@@ -176,7 +176,7 @@ export async function getDashboardData() {
     const { userId } = await auth();
     if (!userId) throw new Error("Unauthorized");
 
-    // Get user
+    // Getting a user by their Clerk ID
     const user = await db.user.findUnique({
       where: { clerkUserId: userId },
     });
@@ -220,7 +220,7 @@ export async function getDashboardData() {
     ).length;
     const featuredCars = cars.filter((car) => car.featured === true).length;
 
-    // Calculate test frive statistics
+    // Calculate test drive statistics
     const totalTestDrives = testDrives.length;
     const pendingTestDrives = testDrives.filter(
       (td) => td.status === "PENDING"

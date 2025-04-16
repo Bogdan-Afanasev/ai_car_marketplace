@@ -64,7 +64,7 @@ export async function getCarFilters() {
       },
     };
   } catch (error) {
-    throw new Error("Error fetching car filters:" + error.message);
+    throw new Error(`Error fetching car filters: ${error.message}`);
   }
 }
 
@@ -175,7 +175,7 @@ export async function getCars({
       },
     };
   } catch (error) {
-    throw new Error("Error fetching cars:" + error.message);
+    throw new Error(`Error fetching cars: ${error.message}`);
   }
 }
 
@@ -249,7 +249,7 @@ export async function toggleSavedCar(carId) {
       message: "Car added to favorites",
     };
   } catch (error) {
-    throw new Error("Error toggling saved car:" + error.message);
+    throw new Error(`Error toggling saved car: ${error.message}`);
   }
 }
 

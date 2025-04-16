@@ -20,6 +20,7 @@ import {
 // Helper function to format time
 const formatTime = (timeString) => {
   try {
+    // Using a fixed date to ensure proper parsing of time
     return format(parseISO(`2022-01-01T${timeString}`), "h:mm a");
   } catch (error) {
     return timeString;

@@ -36,7 +36,7 @@ import { format } from "date-fns";
 const CarDetails = ({ car, testDriveInfo }) => {
   const router = useRouter();
   const { isSignedIn } = useAuth();
-  const [isWislisted, setIsWishlisted] = useState(car.wishlisted);
+  const [isWishlisted, setIsWishlisted] = useState(car.wishlisted);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const {
@@ -47,11 +47,11 @@ const CarDetails = ({ car, testDriveInfo }) => {
   } = useFetch(toggleSavedCar);
 
   useEffect(() => {
-    if (toggleResult?.success && toggleResult.saved !== isWislisted) {
+    if (toggleResult?.success && toggleResult.saved !== isWishlisted) {
       setIsWishlisted(toggleResult.saved);
       toast.success(toggleResult.message);
     }
-  }, [toggleResult, isWislisted]);
+  }, [toggleResult, isWishlisted]);
 
   useEffect(() => {
     if (toggleError) {
@@ -155,15 +155,15 @@ const CarDetails = ({ car, testDriveInfo }) => {
             <Button
               variant="outline"
               className={`flex items-center gap-2 flex-1 ${
-                isWislisted ? "text-red-500" : ""
+                isWishlisted ? "text-red-500" : ""
               }`}
               onClick={handleSaveCar}
               disabled={savingCar}
             >
               <Heart
-                className={`h-5 w-5 ${isWislisted ? "fill-red-500" : ""}`}
+                className={`h-5 w-5 ${isWishlisted ? "fill-red-500" : ""}`}
               />
-              {isWislisted ? "Saved" : "Save"}
+              {isWishlisted ? "Saved" : "Save"}
             </Button>
             <Button
               variant="outline"

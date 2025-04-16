@@ -75,13 +75,16 @@ export const CarFilters = ({ filters }) => {
   ]);
 
   // Count active filters
+  const hasPriceFilter =
+    currentMinPrice > filters.priceRange.min ||
+    currentMaxPrice < filters.priceRange.max;
+
   const activeFilterCount = [
     make,
     bodyType,
     fuelType,
     transmission,
-    currentMinPrice > filters.priceRange.min ||
-      currentMaxPrice < filters.priceRange.max,
+    hasPriceFilter ? "price" : null, // превращаем в строку, чтобы `.filter(Boolean)` работал корректно
   ].filter(Boolean).length;
 
   // Update URL when filters change
@@ -239,13 +242,13 @@ export const CarFilters = ({ filters }) => {
         }}
       >
         <SelectTrigger className="w-[180px] lg:w-full">
-          <SelectValue placeholder="Sort by" />
+          <SelectValue placeholder="Sort By" />
         </SelectTrigger>
         <SelectContent>
           {[
             { value: "newest", label: "Newest First" },
             { value: "priceAsc", label: "Price: Low to High" },
-            { value: "priceDesc", label: "Price:  High to Low" },
+            { value: "priceDesc", label: "Price: High to Low" },
           ].map((option) => (
             <SelectItem key={option.value} value={option.value}>
               {option.label}

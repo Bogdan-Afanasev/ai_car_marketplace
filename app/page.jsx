@@ -21,7 +21,7 @@ export default async function Home() {
     <div className="pt-20 flex flex-col">
       {/* Hero Section with Gradient Title */}
 
-      <section className="relarive py-16 md:py-28 dotted-background">
+      <section className="relative py-16 md:py-28 dotted-background">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h1 className="text-5xl md:text-8xl mb-4 gradient-title">
@@ -152,7 +152,7 @@ export default async function Home() {
               <Link
                 key={type.name}
                 href={`/cars?bodyType=${type.name}`}
-                className="relative group cursos-pointer"
+                className="relative group cursor-pointer"
               >
                 <div className="overflow-hidden rounded-lg flex justify-end h-28 mb-4 relative">
                   <Image
@@ -198,7 +198,7 @@ export default async function Home() {
             Ready to Find Your Dream Car?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Joiin thousands of satisfied customers who found their perfect ACM
+            Join thousands of satisfied customers who found their perfect ACM
             through our platform.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">

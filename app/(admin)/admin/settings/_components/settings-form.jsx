@@ -84,7 +84,7 @@ const SettingsForm = () => {
           if (hourData) {
             return {
               dayOfWeek: hourData.dayOfWeek,
-              openTime: hourData.openTIme,
+              openTime: hourData.openTime,
               closeTime: hourData.closeTime,
               isOpen: hourData.isOpen,
             };
@@ -187,7 +187,7 @@ const SettingsForm = () => {
   const handleRemoveAdmin = async (user) => {
     if (
       confirm(
-        `Are you sure you want to remove admin privileges to ${
+        `Are you sure you want to remove admin privileges from ${
           user.name || user.email
         }? They will no longer be able to access the admin dashboard.`
       )
@@ -200,7 +200,7 @@ const SettingsForm = () => {
     ? usersData.data.filter(
         (user) =>
           user.name?.toLowerCase().includes(userSearch.toLowerCase()) ||
-          user.email.toLowerCase().includes(userSearch.toLowerCase)
+          user.email.toLowerCase().includes(userSearch.toLowerCase())
       )
     : [];
 

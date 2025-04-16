@@ -32,8 +32,10 @@ export function CarListings() {
   const bodyType = searchParams.get("bodyType") || "";
   const fuelType = searchParams.get("fuelType") || "";
   const transmission = searchParams.get("transmission") || "";
-  const minPrice = searchParams.get("minPrice") || 0;
-  const maxPrice = searchParams.get("maxPrice") || Number.MAX_SAFE_INTEGER;
+  const minPrice = parseInt(searchParams.get("minPrice") || "0");
+  const maxPrice = parseInt(
+    searchParams.get("maxPrice") || `${Number.MAX_SAFE_INTEGER}`
+  );
   const sortBy = searchParams.get("sortBy") || "newest";
   const page = parseInt(searchParams.get("page") || "1");
 
@@ -92,7 +94,7 @@ export function CarListings() {
         <Info className="h-4 w-4" />
         <AlertTitle>Error</AlertTitle>
         <AlertDescription>
-          Failed to load cars. Please try again later.
+          We couldn’t load the car listings right now. Please try again shortly.
         </AlertDescription>
       </Alert>
     );
@@ -114,8 +116,8 @@ export function CarListings() {
         </div>
         <h3 className="text-lg font-medium mb-2">No cars found</h3>
         <p className="text-gray-500 mb-6 max-w-md">
-          We couldn't find any cars matching your search criteria. Try adjusting
-          your filters or search term.
+          We couldn’t find any cars matching your search. Try adjusting the
+          filters or using different keywords.
         </p>
         <Button variant="outline" asChild>
           <Link href="/cars">Clear all filters</Link>
@@ -202,7 +204,7 @@ export function CarListings() {
         ))}
       </div>
 
-      {/* shadcn Pagination */}
+      {/* Pagination controls */}
       {pagination.pages > 1 && (
         <Pagination className="mt-10">
           <PaginationContent>

@@ -31,7 +31,7 @@ export async function getFeaturedCars(limit = 3) {
 
     return cars.map(serializeCarData);
   } catch (error) {
-    throw new Error("Error fetching featured cars:" + error.message);
+    throw new Error(`Error fetching featured cars: ${error.message}`);
   }
 }
 
@@ -135,6 +135,6 @@ export async function processImageSearch(file) {
       };
     }
   } catch (error) {
-    throw new Error("AI Search error:" + error.message);
+    throw new Error(`AI Search error: ${error.message}`);
   }
 }
