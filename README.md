@@ -42,27 +42,51 @@
 
 ---
 
-## 📸 Screenshots
+## 📸 Screenshots (Desktop)
 
 ### Главная страница
 
-![Главная](./screenshots/home.png)
+![Homepage](./screenshots/desktop_homepage.png)
 
-### Страница автомобилей
+### Все автомобили + фильтрация
 
-![Автомобили](./screenshots/cars-page.png)
+![All Cars + Filters](./screenshots/desktop_all_cars_filters.png)
 
-### Детали автомобиля
+### Поиск по фото
 
-![Детали](./screenshots/car-details.png)
+![AI Search](./screenshots/desktop_ai_search.png)
 
-### Авторизация и профиль пользователя
+### Просмотр автомобиля
 
-![Профиль](./screenshots/profile.png)
+![Single Car View](./screenshots/desktop_single_car_view.png)
 
-### Админ-панель
+### Добавление машины
 
-![Админка](./screenshots/admin-panel.png)
+![Add Car](./screenshots/desktop_add_car_ai_fill.png)
+
+### Панель администратора
+
+![Admin Panel](./screenshots/desktop_admin_panel.png)
+
+### Dashboard
+
+![Dashboard](./screenshots/desktop_dashboard.png)
+
+---
+
+## 📸 Screenshots (Mobile)
+
+### Главная страница (адаптив)
+
+![Mobile Homepage](./screenshots/mobile_homepage.png)
+
+### Просмотр авто
+
+![Mobile Car View](./screenshots/mobile_single_car.png)
+
+### Профиль пользователя
+
+![User Profile](./screenshots/mobile_user_profile.png)
 
 ---
 
