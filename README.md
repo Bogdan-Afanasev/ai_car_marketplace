@@ -1,36 +1,161 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# AI Car Marketplace
 
-## Getting Started
+---
 
-First, run the development server:
+## Описание
+
+**AI Car Marketplace** — это полнофункциональное маркетплейс-приложение для покупки, продажи и управления автомобилями.
+
+---
+
+## 🚀 Live Demo
+
+<p align="center">
+  <a href="https://ai-car-marketplace-rouge.vercel.app">
+    <img src="https://img.shields.io/badge/-Live%20Demo-blue?style=for-the-badge" alt="Live Demo" />
+  </a>
+  <br />
+  <a href="https://github.com/Bogdan-Afanasev/ai-car-marketplace">
+    <img src="https://img.shields.io/github/stars/Bogdan-Afanasev/ai-car-marketplace?style=social" alt="GitHub stars" />
+  </a>
+</p>
+
+---
+
+## 🎞️ Demo (GIF)
+
+### Admin Flow
+
+![Admin Flow](./screenshots/admin-flow.gif)
+
+### User Flow
+
+![User Flow](./screenshots/user-flow.gif)
+
+### AI Photo Search
+
+![AI Search](./screenshots/ai-search.gif)
+
+### Mobile View (Responsive)
+
+![Mobile View](./screenshots/mobile--view.gif)
+
+---
+
+## 📸 Screenshots
+
+### Главная страница
+
+![Главная](./screenshots/home.png)
+
+### Страница автомобилей
+
+![Автомобили](./screenshots/cars-page.png)
+
+### Детали автомобиля
+
+![Детали](./screenshots/car-details.png)
+
+### Авторизация и профиль пользователя
+
+![Профиль](./screenshots/profile.png)
+
+### Админ-панель
+
+![Админка](./screenshots/admin-panel.png)
+
+---
+
+## 🧪 Функциональность
+
+- [x] Адаптивный UI
+- [x] Авторизация и роли
+- [x] Поиск автомобилей вручную и по фото (AI)
+- [x] Заказ тест-драйвов и управление ими
+- [x] Личный кабинет пользователя
+- [x] Панель администратора (добавление, удаление машин, управление админами, рабочими часами)
+- [x] Дашборд статистики
+- [x] Умный подбор характеристик по изображению (для админов)
+
+---
+
+## ⚙️ Технологии
+
+### Frontend
+
+- React 19
+- Next.js 14 / App Router
+- Tailwind CSS + shadcn/ui
+- TypeScript
+- Zustand
+- React Hook Form
+- Clerk Auth
+- UploadThing
+- Framer Motion
+
+### Backend & DB
+
+- Supabase (PostgreSQL + Storage)
+- Prisma ORM
+- Convex Functions
+- Gemini API (AI)
+- Rate Limiting / Arcjet
+
+### Tools
+
+- Git / GitHub
+- ESLint / Prettier
+- Vercel (хостинг)
+- Docker (dev)
+
+---
+
+## 🛠️ Установка и запуск
 
 ```bash
+git clone https://github.com/Bogdan-Afanasev/ai-car-marketplace.git
+cd ai-car-marketplace
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔐 .env переменные
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Создайте `.env.local` файл и добавьте:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_key
+CLERK_SECRET_KEY=your_key
 
-## Learn More
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 
-To learn more about Next.js, take a look at the following resources:
+DATABASE_URL=your_key
+DIRECT_URL=your_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+ARCJET_KEY=your_key
+ARCJET_ENV=your_key
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+GEMINI_API_KEY=your_key
 
-## Deploy on Vercel
+NEXT_PUBLIC_SUPABASE_URL=your_key
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Автор
+
+[![avatar](https://avatars.githubusercontent.com/u/ВАШ_ID?s=64)](https://github.com/Bogdan-Afanasev)  
+**Богдан Афанасьев** — Frontend Developer / Fullstack Enthusiast / Philosopher-in-Progress  
+[GitHub](https://github.com/Bogdan-Afanasev) | [Telegram](https://t.me/your_tg) | [Email](mailto:bogdan.way.00@gmail.com)
+
+---
+
+## ⚖️ Лицензия
+
+Этот проект создан исключительно в учебных целях. Все использованные API, стили и технологии принадлежат их соответствующим владельцам. Проект не предназначен для коммерческого использования.
+
+---
+
+Наслаждайтесь — и не забудьте ⭐ звезду, если вам понравилось!
