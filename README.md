@@ -170,7 +170,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_key
 
 ## 🤝 Автор
 
-[![avatar](https://avatars.githubusercontent.com/u/ВАШ_ID?s=64)](https://github.com/Bogdan-Afanasev)  
+[![avatar](https://avatars.githubusercontent.com/u/173070174?s=64)](https://github.com/Bogdan-Afanasev)  
 **Богдан Афанасьев** — Frontend Developer / Fullstack Enthusiast / Philosopher-in-Progress  
 [GitHub](https://github.com/Bogdan-Afanasev) | [Telegram](https://t.me/your_tg) | [Email](mailto:bogdan.way.00@gmail.com)
 
